@@ -1,19 +1,15 @@
 
 spring:
-  datasource:
-    url: jdbc:h2:mem:demo
-    driver-class-name: org.h2.Driver
-    username: sa
-    password:
-  h2:
-    console:
-      enabled: true
+  mybatis:
+    write:
+      # Packages to search for type aliases. (Package delimiters are “,; \t\n”)
+      type-aliases-package: com.inglc.demo.mapper.entity
+        # Locations of Mapper xml config file.
+      mapper-locations: classpath:com/inglc/demo/**/*WriteMapper.xml
+    read:
+      type-aliases-package: com.inglc.demo.mapper.entity
+      mapper-locations: classpath:com/inglc/demo/**/*ReadMapper.xml
 
-mybatis:
-  # Packages to search for type aliases. (Package delimiters are “,; \t\n”)
-  type-aliases-package: com.inglc.demo.domain
-  # Locations of Mapper xml config file.
-  mapper-locations: classpath:com/**/*Mapper.xml
 
 server:
   port: 9000
